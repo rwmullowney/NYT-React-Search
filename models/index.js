@@ -1,3 +1,6 @@
+// Export object with relevant models
+
 module.exports = {
-  User: require("./user")
+  User: require("./User"),
+  Transaction: require("./Transaction")
 };
