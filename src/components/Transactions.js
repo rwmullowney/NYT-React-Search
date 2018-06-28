@@ -1,11 +1,14 @@
 import React from 'react';
 
-// export default class Transaction extends Component {
-//   render() {
-//     return (
+
+
+
+
+
+
 const Transactions = props => (
   <div className="transactions">
-    {/* { this.props.children } */}
+    { console.log(props.cryptos) }
     <div className="container">
       {/* {{!-- Sign in as a select userID --}} */}
       <div className="form-group">
@@ -31,7 +34,7 @@ const Transactions = props => (
       <h2 className="mt-3">Select the currency you'd like to buy:</h2>
       <div className="col-6">
         <div className="form-group">
-          <label for="exampleSelect1">Currencies:</label>
+          <label >Currencies:</label>
           <select className="form-control" id="coinDropdown">
             <option value="1">Bitcoin</option>
             <option value="2">Litecoin</option>
@@ -53,7 +56,7 @@ const Transactions = props => (
       <div id="coinPrice"></div>
 
       <div className="form-group">
-        <label for="example-number-input" className="col-2 col-form-label">Amount to trade:</label>
+        <label className="col-2 col-form-label">Amount to trade:</label>
         <div className="col-10">
           <input className="form-control" type="number" value="1" id="coinAmount" />
         </div>
@@ -79,8 +82,5 @@ const Transactions = props => (
     </div>
   </div>
 )
-//     )
-//   }
-// }
 
 export default Transactions
