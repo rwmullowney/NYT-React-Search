@@ -6,12 +6,12 @@ class CoinMenu extends Component {
   render() {
 
 
-    // console.log(updateCrypto)
+    console.log(this.props.props)
     return (
       <div>
         <select
-          value={52} 
-          onChange={'updateCrypto'} 
+          value={this.props.props.value} 
+          onChange={this.props.props.updateCrypto} 
           className="form-control" id="coinDropdown">
           <option value="1">Bitcoin</option>
           <option value="2">Litecoin</option>
@@ -72,7 +72,12 @@ const Transactions = props => (
       <div className="col-6">
         <div className="form-group">
           <label >Currencies:</label>
-          <CoinMenu />
+          <CoinMenu 
+          
+          // Passing these in here too because for some reason I can't access the props properties without
+          // them being undefined otherwise.  Probably an async issue.
+          props={props}
+          />
         </div>
       </div>
 

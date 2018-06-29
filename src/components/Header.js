@@ -12,7 +12,7 @@ export default class Header extends Component {
   // Set initial state
   state = {
     cryptos: [],
-    value: 0
+    value: 52
   };
 
   // Runs the API query upon page load
@@ -39,11 +39,6 @@ export default class Header extends Component {
     console.log("updating with " + e.target.value)
     // this.setState({value: e.target.value})
   }
-
-  // updateCrypto() {
-  //   console.log("updating")
-  //   console.log(this.value)
-  // }
 
 
 
