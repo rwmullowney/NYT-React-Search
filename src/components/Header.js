@@ -15,29 +15,34 @@ export default class Header extends Component {
     value: 52
   };
 
+
   // Runs the API query upon page load
   componentDidMount() {
     this.cryptoAPI();
   };
+
 
   // Runs the CoinMarketCap API and updates the state with the response
   cryptoAPI() {
     API.search()
       .then(
         res => this.setState({ cryptos: res.data.data })
+        // res => {
+        //   let cryptoArray = []
+        //   for (let i in res.data.data) {
+        //     cryptoArray.push(res.data.data[i])
+        //   }
+        //   this.setState({ cryptos: cryptoArray });
+        // }
       )
       .catch(err => console.log(err));
   };
 
-  // Passes successfully!
-  testFunction() {
-    console.log("this is a test");
-  };
-
-
-  updateCrypto = e => {
+  // Update the crypto on the page
+  onCryptoChange = e => {
     console.log("updating with " + e.target.value)
-    // this.setState({value: e.target.value})
+    this.setState({ value: e.target.value })
+    // console.log(this.state.cryptos[this.state.value])
   }
 
 
@@ -46,7 +51,10 @@ export default class Header extends Component {
 
 
   render() {
+
+    { console.log(this.state.cryptos) }
     return (
+
       <div className="container justify-content-center mt-3 header">
         <h1 className="text-center" style={textStyle}>Crypto Transactions</h1>
 
@@ -56,7 +64,7 @@ export default class Header extends Component {
         <Transactions
           cryptos={this.state.cryptos}
           value={this.state.value}
-          updateCrypto={this.updateCrypto}
+          onCryptoChange={this.onCryptoChange}
         />
       </div>
     )

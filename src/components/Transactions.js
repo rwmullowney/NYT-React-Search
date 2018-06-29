@@ -5,23 +5,24 @@ class CoinMenu extends Component {
 
   render() {
 
-
+    console.log("this props props")
     console.log(this.props.props)
     return (
       <div>
+        {/* {JSON.stringify(this.props.props.cryptos[1])} */}
         <select
           value={this.props.props.value} 
-          onChange={this.props.props.updateCrypto} 
+          onChange={this.props.props.onCryptoChange} 
           className="form-control" id="coinDropdown">
           <option value="1">Bitcoin</option>
           <option value="2">Litecoin</option>
           <option value="52">Ripple</option>
           <option value="512">Stellar</option>
+          <option value="825">Tether</option>
           <option value="1027">Ethereum</option>
           <option value="1720">IOTA</option>
           <option value="1765">EOS</option>
           <option value="1831">Bitcoin Cash</option>
-          <option value="1958">TRON</option>
           <option value="2010">Cardano</option>
         </select>
       </div>
@@ -36,11 +37,9 @@ class CoinMenu extends Component {
 const Transactions = props => (
   <div className="transactions">
 
-    {/* {props.updateCrypto()} */}
-    {console.log(props)}
+    {'test'}
+    {/* {JSON.stringify(props.cryptos[52])} */}
     {props.cryptos.length > 0 ? props.cryptos[0].symbol : null}
-    {/* {console.log(props.cryptos[2])} */}
-
 
     <div className="container">
       {/* {{!-- Sign in as a select userID --}} */}
@@ -82,7 +81,7 @@ const Transactions = props => (
       </div>
 
       {/* TODO: Display coin API information here */}
-      <div id="coinIcon"></div>
+      <div id="coinIcon">{JSON.stringify(props.cryptos[props.value])}</div>
       <div id="coinName"></div>
       <div id="coinPrice"></div>
 
