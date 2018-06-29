@@ -1,6 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 
+class CoinMenu extends Component {
+
+  render() {
+
+
+    // console.log(updateCrypto)
+    return (
+      <div>
+        <select
+          value={52} 
+          onChange={'updateCrypto'} 
+          className="form-control" id="coinDropdown">
+          <option value="1">Bitcoin</option>
+          <option value="2">Litecoin</option>
+          <option value="52">Ripple</option>
+          <option value="512">Stellar</option>
+          <option value="1027">Ethereum</option>
+          <option value="1720">IOTA</option>
+          <option value="1765">EOS</option>
+          <option value="1831">Bitcoin Cash</option>
+          <option value="1958">TRON</option>
+          <option value="2010">Cardano</option>
+        </select>
+      </div>
+    );
+  };
+};
 
 
 
@@ -8,7 +35,13 @@ import React from 'react';
 
 const Transactions = props => (
   <div className="transactions">
-    { console.log(props.cryptos) }
+
+    {/* {props.updateCrypto()} */}
+    {console.log(props)}
+    {props.cryptos.length > 0 ? props.cryptos[0].symbol : null}
+    {/* {console.log(props.cryptos[2])} */}
+
+
     <div className="container">
       {/* {{!-- Sign in as a select userID --}} */}
       <div className="form-group">
@@ -31,22 +64,15 @@ const Transactions = props => (
       <button className="btn btn-success" id="submitEmail">Create user</button>
 
 
+
+
+      {/* Can I just have this read the currnt value of the select form
+      and then display other stuff based on that current value? */}
       <h2 className="mt-3">Select the currency you'd like to buy:</h2>
       <div className="col-6">
         <div className="form-group">
           <label >Currencies:</label>
-          <select className="form-control" id="coinDropdown">
-            <option value="1">Bitcoin</option>
-            <option value="2">Litecoin</option>
-            <option value="52">Ripple</option>
-            <option value="512">Stellar</option>
-            <option value="1027">Ethereum</option>
-            <option value="1720">IOTA</option>
-            <option value="1765">EOS</option>
-            <option value="1831">Bitcoin Cash</option>
-            <option value="1958">TRON</option>
-            <option value="2010">Cardano</option>
-          </select>
+          <CoinMenu />
         </div>
       </div>
 
